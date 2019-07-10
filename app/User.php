@@ -38,16 +38,11 @@ class User extends Authenticatable
     ];
 
 
-    public function question(){
+    public function questions(){
 
         return $this->hasMany(Question::class);
     }
 
-    public function setTtitleAttribute($value){
-
-        $this->attributes['title']=$value;
-        $this->attributes['title']=str_slug($value); //gives the title a slug format
-    }
-
+   
 
 }
