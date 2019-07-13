@@ -19,4 +19,14 @@ class Question extends Model
         $this->attributes['slug']=str_slug($value); //gives the title a slug format
     }
 
+    public function getUrlAttribute(){
+
+    	return route("questions.show", $this->id);
+    }
+
+    public function getCreatedDateAttribute(){
+
+    	return $this->created_at->diffForHumans(); //shows how long ago it was created
+    }
+
 }
