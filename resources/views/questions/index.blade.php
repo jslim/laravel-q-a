@@ -12,6 +12,23 @@
                     @foreach($questions as $question)
 
                         <div class="media">
+
+                            <div class="d-flex flex-column counter">
+                                <div class="vote">
+                                    <strong> {{ $question->votes }} </strong> {{ str_plural('vote', $question->votes) }}
+                                </div> <!--depending on the quantity of votes, it will be vote or votes-->
+                                
+                                <div class="status {{ $question->status }}">
+                                    <strong> {{ $question->answers }} </strong> {{ str_plural('answer', $question->answers) }}
+                                </div> <!--depending on the quantity of votes, it will be answer or answers-->
+                                
+                                <div class="view">
+                                    {{ $question->views ." ". str_plural('view', $question->views) }}
+                                </div> <!--depending on the quantity of votes, it will be view or view-->
+                                
+                            </div>
+
+
                             <div class="media-body">
 
                                 <h3 class="mt-0"> 
