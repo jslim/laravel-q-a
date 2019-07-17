@@ -10,7 +10,7 @@
                     <div class="d-flex align-items-center"> 
                         <h2>Ask a Question!</h2>
                         <div class="ml-auto">
-                            <a href=" {{ route('questions.index') }} " class="btn btn-outline-success">Go Back!</a>
+                            <a href=" {{ route('questions.index') }} " class="btn btn-outline-secondary">Go Back!</a>
 
                         </div>
                     </div> 
@@ -19,13 +19,16 @@
 
                 <div class="card-body">
                     
-                    <form action="{{ route('questions.store')  }}">
+                    <form action="{{ route('questions.store')  }}" method="post">
                         @csrf
                         <div class="form-group">
                             
                             <label for="question-title">Question Title</label>
-                            <input type="text" name="title" id="question-title" class="form-control 
-                            {{ $errors->has('title') ? 'is-invalid' : '' }}">
+                            <input type="text" 
+                                    name="title" 
+                                    id="question-title" 
+                                    value="{{ old('title') }}"
+                                    class="form-control {{ $errors->has('title') ? 'is-invalid' : '' }}">
 
                             @if ($errors->has('title'))
                                 <div class="invalid-feedback">
@@ -37,8 +40,13 @@
                         <div class="form-group">
                             
                             <label for="question-body">What is your question?</label>
-                            <textarea name="body" id="question-body" rows="8" class="form-control
-                            {{ $errors->has('body') ? 'is-invalid' : '' }}"></textarea>
+                            <textarea name="body" 
+                                      id="question-body" 
+                                      rows="8" 
+                                      class="form-control {{ $errors->has('body') ? 'is-invalid' : '' }}">
+                                          
+                                 {{ old('body') }} 
+                             </textarea>
                         
                              @if ($errors->has('body'))
                                 <div class="invalid-feedback">
@@ -49,7 +57,7 @@
                         </div>
                         <div class="form-group">
                             
-                            <button type="submit" class="btn btn-outline-primary btn-lg">Ask!</button>
+                            <button type="submit" class="btn btn-success btn-lg">Ask!</button>
 
                         </div>
                     </form>
