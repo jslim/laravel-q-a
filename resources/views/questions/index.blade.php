@@ -43,7 +43,7 @@
                             <div class="media-body">
 
 
-                              <div class="d-flex align-items-center">
+                              <div class="d-flex align-items-center ">
 
                                 <h3 class="mt-0"> 
                                 <a href=" {{ $question->url }} "> {{ $question->title }} 
@@ -51,7 +51,19 @@
                                 </h3>
                                 <!--Editing the question-->
                                 <div class="ml-auto">
-                                    <a href="{{ route('questions.edit', $question->id) }}" class="btn btn-outline-info btn-sm"> Edit </a>
+                                    <a href="{{ route('questions.edit', $question->id) }}" class="btn btn-outline-info btn-sm "> Edit </a>
+                                <!--Delete the question-->
+                                    <form method="post" class="d-inline" action="{{ route('questions.destroy', $question->id) }}">
+                                        @method('DELETE')
+                                        @csrf
+                                        <button type="submit" class="btn btn-sm btn-outline-danger"
+                                                onclick="return confirm('Are you sure?')" >
+                                            
+                                                Delete
+                                        </button>
+                                    </form>
+
+
                                 </div>
 
                               </div>
