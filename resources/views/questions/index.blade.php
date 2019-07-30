@@ -30,8 +30,8 @@
                                 </div> <!--depending on the quantity of votes, it will be vote or votes-->
                                 
                                 <div class="status {{ $question->status }}">
-                                    <strong> {{ $question->answers }} </strong> {{ str_plural('answer', $question->answers) }}
-                                </div> <!--depending on the quantity of votes, it will be answer or answers-->
+                                    <strong> {{ $question->answers_count }} </strong> {{ str_plural('answer', $question->answers_count) }}
+                                </div> <!--depending on the quantity of votes, it will be answer or answers_count-->
                                 
                                 <div class="view">
                                     {{ $question->views ." ". str_plural('view', $question->views) }}
