@@ -49,10 +49,15 @@
                                 <a href=" {{ $question->url }} "> {{ $question->title }} 
                                 </a> 
                                 </h3>
-                                <!--Editing the question-->
+                                
                                 <div class="ml-auto">
+                                 <!--Editing the question-->   
+                                    @can('update', $question)
                                     <a href="{{ route('questions.edit', $question->id) }}" class="btn btn-outline-info btn-sm "> Edit </a>
+                                    @endcan
                                 <!--Delete the question-->
+
+                                    @can('delete', $question)
                                     <form method="post" class="d-inline" action="{{ route('questions.destroy', $question->id) }}">
                                         @method('DELETE')
                                         @csrf
@@ -62,7 +67,7 @@
                                                 Delete
                                         </button>
                                     </form>
-
+                                    @endcan
 
                                 </div>
 
