@@ -45,4 +45,10 @@ class Answer extends Model
     }
 
 
+     public function getCreatedDateAttribute(){
+
+    	return $this->created_at->diffForHumans(); //shows how long ago it was created
+    }
+
+
 }
